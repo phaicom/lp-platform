@@ -7,10 +7,10 @@ settings:
 catalogs:
   dev:
     '@antfu/eslint-config':
-      specifier: ^9.0.0
+      specifier: ^9.3.0
       version: 9.3.0
     eslint:
-      specifier: ^10.7.0
+      specifier: ^10.8.0
       version: 10.8.0
     nano-staged:
       specifier: ^1.0.2

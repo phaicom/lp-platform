@@ -13,8 +13,8 @@ allowBuilds:
 
 catalogs:
   dev:
-    '@antfu/eslint-config': ^9.0.0
-    eslint: ^10.7.0
+    '@antfu/eslint-config': ^9.3.0
+    eslint: ^10.8.0
     nano-staged: ^1.0.2
     simple-git-hooks: ^2.13.1
     typescript: ^6.0.3
