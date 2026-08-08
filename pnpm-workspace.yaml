@@ -1,0 +1,20 @@
+catalogMode: prefer
+cleanupUnusedCatalogs: true
+ignoreWorkspaceRootCheck: true
+shellEmulator: true
+
+trustPolicy: no-downgrade
+packages:
+  - app/*
+  - packages/*
+
+allowBuilds:
+  simple-git-hooks: true
+
+catalogs:
+  dev:
+    '@antfu/eslint-config': ^9.0.0
+    eslint: ^10.7.0
+    nano-staged: ^1.0.2
+    simple-git-hooks: ^2.13.1
+    typescript: ^6.0.3

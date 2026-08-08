@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+skills/npm-*
+
+# Nuxt
+.nuxt/
+.output/
+.nitro/
+.data/
+
+# Build outputs
+dist/
+coverage/
+lib-cov/
+storybook-static/
+
+# Cache & temp
+.cache/
+cache/
+temp/
+*.timestamp-*
+*.tgz
+
+# Logs
+logs/
+*.log
+
+# Environment
+.env
+.env.*
+!.env.example
+*.local
+
+# IDE / OS
+.idea/
+.DS_Store
+
+# Git hooks
+.githooks/
+
+# Project-specific
+/packages/design/skills/
