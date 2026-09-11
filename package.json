@@ -25,7 +25,7 @@
     "typescript": "catalog:dev"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpx nano-staged"
+    "pre-commit": "pnpm nano-staged"
   },
   "nano-staged": {
     "*.{js,jsx,ts,tsx,mjs,cjs}": [
