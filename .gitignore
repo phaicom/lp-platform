@@ -2,11 +2,18 @@
 node_modules/
 skills/npm-*
 
-# Nuxt
-.nuxt/
+# Framework and deployment outputs
 .output/
 .nitro/
 .data/
+.netlify/
+.vercel/
+.vinxi/
+.wrangler/
+.tanstack/
+__unconfig*
+app.config.timestamp_*.js
+todos.json
 
 # Build outputs
 dist/

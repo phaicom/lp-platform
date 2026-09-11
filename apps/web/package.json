@@ -1,17 +1,44 @@
 {
   "name": "@lp-platform/web",
-  "type": "module",
   "private": true,
+  "type": "module",
+  "imports": {
+    "#/*": "./src/*"
+  },
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "dev": "vite dev --port 3000",
+    "generate-routes": "tsr generate",
+    "generate-i18n": "paraglide-js compile --project ./project.inlang --outdir ./src/paraglide --strategy url baseLocale --silent",
+    "generate": "pnpm generate-routes && pnpm generate-i18n",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "pnpm generate && tsc --noEmit"
   },
   "dependencies": {
-    "nuxt": "catalog:frontend",
-    "vue": "catalog:frontend",
-    "vue-router": "catalog:frontend"
+    "@tailwindcss/vite": "^4.1.18",
+    "@tanstack/react-devtools": "latest",
+    "@tanstack/react-router": "latest",
+    "@tanstack/react-router-devtools": "latest",
+    "@tanstack/react-start": "latest",
+    "nitro": "3.0.260610-beta",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "@inlang/paraglide-js": "^2.13.1",
+    "@tanstack/devtools-vite": "latest",
+    "@tanstack/router-cli": "^1.132.0",
+    "@types/node": "catalog:dev",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^6.0.1",
+    "typescript": "catalog:dev",
+    "vite": "^8.0.0"
+  },
+  "intent": {
+    "skills": [
+      "@tanstack/react-start"
+    ]
   }
 }

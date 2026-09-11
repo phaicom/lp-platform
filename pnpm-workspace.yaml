@@ -6,23 +6,25 @@ shellEmulator: true
 trustPolicy: no-downgrade
 allowBuilds:
   esbuild: true
+  lightningcss: true
   simple-git-hooks: true
 
 trustPolicyExclude:
   - semver@6.3.1
+
+overrides:
+  solid-js: ^1.9.15
+
 packages:
   - apps/*
   - packages/*
 
 catalogs:
   dev:
-    '@antfu/eslint-config': ^9.3.0
-    eslint: ^10.8.0
+    '@types/node': ^26.2.0
     nano-staged: ^1.0.2
-    simple-git-hooks: ^2.13.1
-    turbo: ^2.10.8
+    oxfmt: ^0.67.0
+    oxlint: ~1.79.0
+    simple-git-hooks: ^2.14.0
+    turbo: ^2.10.12
     typescript: ^6.0.3
-  frontend:
-    nuxt: ^4.5.2
-    vue: ^3.5.40
-    vue-router: ^5.2.0

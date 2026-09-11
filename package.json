@@ -1,27 +1,25 @@
 {
   "name": "lp-platform",
-  "type": "module",
   "version": "0.0.1",
   "private": true,
-  "packageManager": "pnpm@11.20.0",
-  "author": "Reawpai Chunsoi",
   "license": "MIT",
-  "engines": {
-    "node": ">=24.0.0"
-  },
+  "author": "Reawpai Chunsoi",
+  "type": "module",
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
     "test": "turbo run test",
-    "lint": "eslint",
-    "lint:fix": "eslint --fix",
-    "typecheck": "pnpm -r --filter './packages/*' run typecheck",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
+    "typecheck": "turbo run typecheck",
     "prepare": "simple-git-hooks"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "catalog:dev",
-    "eslint": "catalog:dev",
     "nano-staged": "catalog:dev",
+    "oxfmt": "catalog:dev",
+    "oxlint": "catalog:dev",
     "simple-git-hooks": "catalog:dev",
     "turbo": "catalog:dev",
     "typescript": "catalog:dev"
@@ -30,6 +28,14 @@
     "pre-commit": "pnpm nano-staged"
   },
   "nano-staged": {
-    "*": "eslint --fix"
-  }
+    "*.{js,jsx,ts,tsx,mjs,cjs}": [
+      "oxlint --fix",
+      "oxfmt --no-error-on-unmatched-pattern"
+    ],
+    "*.{json,jsonc,json5,css,scss,less,md,mdx,yml,yaml,toml,html}": "oxfmt --no-error-on-unmatched-pattern"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "packageManager": "pnpm@11.26.0"
 }
