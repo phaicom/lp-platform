@@ -10,33 +10,43 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as RegLangLpNameRouteImport } from './routes/$reg.$lang.$lpName'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RegLangLpNameRoute = RegLangLpNameRouteImport.update({
+  id: '/$reg/$lang/$lpName',
+  path: '/$reg/$lang/$lpName',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/$reg/$lang/$lpName': typeof RegLangLpNameRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/$reg/$lang/$lpName': typeof RegLangLpNameRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/$reg/$lang/$lpName': typeof RegLangLpNameRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/$reg/$lang/$lpName'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/$reg/$lang/$lpName'
+  id: '__root__' | '/' | '/$reg/$lang/$lpName'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  RegLangLpNameRoute: typeof RegLangLpNameRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +58,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/$reg/$lang/$lpName': {
+      id: '/$reg/$lang/$lpName'
+      path: '/$reg/$lang/$lpName'
+      fullPath: '/$reg/$lang/$lpName'
+      preLoaderRoute: typeof RegLangLpNameRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  RegLangLpNameRoute: RegLangLpNameRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

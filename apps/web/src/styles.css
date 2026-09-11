@@ -1,4 +1,8 @@
 @import 'tailwindcss';
+@import '@fontsource/noto-sans-thai/thai-400.css';
+@import '@fontsource/noto-sans-thai/thai-700.css';
+@import '@fontsource/noto-serif-thai/thai-400.css';
+@import '@fontsource/noto-serif-thai/thai-600.css';
 
 * {
   box-sizing: border-box;
@@ -12,4 +16,148 @@ body,
 
 body {
   margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.lp-neon {
+  font-family: 'Arial Narrow', 'Roboto Condensed', Arial, sans-serif;
+}
+
+.neon-grid {
+  background-image:
+    linear-gradient(rgba(69, 243, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(69, 243, 255, 0.055) 1px, transparent 1px),
+    radial-gradient(circle at 73% 42%, rgba(69, 243, 255, 0.13), transparent 28%),
+    radial-gradient(circle at 60% 75%, rgba(255, 49, 87, 0.12), transparent 26%);
+  background-size:
+    56px 56px,
+    56px 56px,
+    auto,
+    auto;
+}
+
+.neon-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px #c8ff2e;
+  text-shadow: 0 0 28px rgba(200, 255, 46, 0.14);
+}
+
+.neon-button {
+  color: #050608;
+  background: #c8ff2e;
+  box-shadow: 5px 5px 0 #45f3ff;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.neon-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 #ff3157;
+}
+
+.neon-orbit {
+  animation: neon-spin 18s linear infinite;
+  background: repeating-conic-gradient(
+    from 0deg,
+    transparent 0deg 18deg,
+    rgba(69, 243, 255, 0.22) 18deg 19deg
+  );
+  box-shadow:
+    inset 0 0 80px rgba(69, 243, 255, 0.06),
+    0 0 70px rgba(69, 243, 255, 0.08);
+}
+
+.lp-golden {
+  font-family: 'Noto Serif Thai', Georgia, 'Times New Roman', serif;
+}
+
+.lp-golden p,
+.lp-golden nav,
+.lp-golden a {
+  font-family: 'Noto Sans Thai', Arial, sans-serif;
+}
+
+.golden-rosette {
+  background:
+    repeating-conic-gradient(
+      from 8deg,
+      rgba(255, 248, 227, 0.75) 0deg 5deg,
+      transparent 5deg 12deg
+    ),
+    radial-gradient(circle, #c79a45 0 26%, #9d6b25 27% 51%, #e2c178 52% 63%, transparent 64%);
+  box-shadow: 0 30px 100px rgba(85, 53, 25, 0.22);
+  animation: golden-drift 24s ease-in-out infinite alternate;
+}
+
+.golden-link {
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.45rem;
+}
+
+.golden-banner {
+  background-color: #382719;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(213, 182, 117, 0.14) 0 2px, transparent 3px),
+    radial-gradient(circle at 90% 70%, rgba(213, 182, 117, 0.12) 0 2px, transparent 3px);
+  background-size:
+    38px 38px,
+    52px 52px;
+}
+
+.lp-desert {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.desert-grain {
+  background-image:
+    repeating-radial-gradient(
+      circle at 12% 22%,
+      rgba(23, 22, 18, 0.045) 0 1px,
+      transparent 1px 5px
+    ),
+    linear-gradient(115deg, transparent 0 49.8%, rgba(23, 22, 18, 0.025) 50%, transparent 50.2%);
+}
+
+.desert-contour {
+  background:
+    repeating-radial-gradient(
+      ellipse at 10% 120%,
+      transparent 0 12px,
+      #171612 13px 14px,
+      transparent 15px 28px
+    ),
+    #eb4f2f;
+}
+
+@keyframes neon-spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes golden-drift {
+  to {
+    transform: translate(-50%, -50%) rotate(8deg) scale(1.03);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .neon-orbit,
+  .golden-rosette {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
 }

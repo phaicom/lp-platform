@@ -25,7 +25,7 @@ export const Route = createRootRoute({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'TanStack Start Starter',
+        title: 'Landing Page Platform',
       },
     ],
     links: [
@@ -35,6 +35,17 @@ export const Route = createRootRoute({
       },
     ],
   }),
+  notFoundComponent: () => (
+    <main className="grid min-h-screen place-items-center px-6 text-center">
+      <div>
+        <p className="text-sm font-semibold tracking-widest text-cyan-700 uppercase">404</p>
+        <h1 className="mt-3 text-4xl font-black">Landing page not found</h1>
+        <p className="mt-3 text-slate-600">
+          This campaign is unavailable for the requested region.
+        </p>
+      </div>
+    </main>
+  ),
   shellComponent: RootDocument,
 })
 

@@ -15,7 +15,9 @@ const config = defineConfig({
     paraglideVitePlugin({
       project: './project.inlang',
       outdir: './src/paraglide',
-      strategy: ['url', 'baseLocale'],
+      // LP language is the second segment in /:reg/:lang/:slug. A cookie keeps
+      // the app-shell locale without introducing a second URL routing model.
+      strategy: ['cookie', 'baseLocale'],
     }),
     nitro({ rollupConfig: { external: [/^@sentry\//] } }),
     tailwindcss(),

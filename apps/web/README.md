@@ -9,6 +9,18 @@ pnpm install
 pnpm dev
 ```
 
+## Campaign fixtures
+
+The example campaigns are intentionally available only at their canonical landing-page URLs;
+there is no public campaign directory or demo route.
+
+- `/int/en/neon-trading-cup`
+- `/th/en/golden-market-festival`
+- `/th/th/golden-market-festival`
+- `/za/en/desert-edge-challenge`
+
+With the default development port, prefix each path with `http://localhost:3000`.
+
 # Building For Production
 
 To build this application for production:
